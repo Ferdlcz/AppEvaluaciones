@@ -1,0 +1,277 @@
+<noscript>
+	<h1>
+		<span data-lang="es">Por favor, activa Javascript en tu navegador</span>
+		<span data-lang="en">Please enable Javascript in your browser</span>
+	</h1>
+</noscript>
+
+<!-- Navbar -->
+<div id="spinner-loading" class="floating-screen show">
+	<div class="w-100 h-100">
+		<div>
+			<div class="spinner-border text-info"></div>
+		</div>
+	</div>
+</div>
+
+<div id="spinner-waiting" class="floating-screen hide">
+	<div class="w-100 vh-40">
+		<div>
+			<div class="spinner-border text-light"></div>
+			<h3 class="text text-light">
+				<p class="lang" data-lang="es">Por favor, espere...</p>
+				<p class="lang" data-lang="en">Please wait...</p>
+			</h3>
+		</div>
+	</div>
+</div>
+
+<div id="screen" class="floating-screen hide">
+	<div class="w-100 vh-40 my-auto">
+		<div class="w-100 h-100 py-4 rounded-3 bg-light">
+			<div class="row d-flex justify-content-center">
+				<div class="success-checkmark">
+					<div class="check-icon ">
+						<span class="icon-line line-tip"></span>
+						<span class="icon-line line-long"></span>
+						<div class="icon-circle"></div>
+						<div class="icon-fix"></div>
+					</div>
+				</div>
+				<h3 class="fw-bold text-center">
+					<span data-lang="es">¡Éxito!</span>
+					<span data-lang="en">Success!</span>
+				</h3>
+			</div>
+			<div class="row my-auto">
+				<div class="col-xl-7 col-md-9 col-11 mx-auto text-center">
+					<h4 id="screen-msg">
+						<span data-lang="es">Se completo el registro de la evaluación exitosamente.</span>
+						<span data-lang="en">The evaluation registration was successfully completed.</span>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="snack mx-auto w-25 d-flex flex-nowrap justify-content-center position-fixed">
+	<div id="snack-container" class="container-fluid mt-5"></div>
+</div>
+
+<div id="tooltip"><p></p></div>
+
+<nav id="layoutNavbar" data-log="<%= (session) ? true : false %>"
+	class="sb-topnav navbar navbar-expand navbar-dark bg-dark text-end">
+	<!-- Navbar Brand-->
+	<button class="navbar-brand btn goto ps-3" data-goto="/home/">
+		<img class="mx-auto d-block pt-1 pe-none" src="/img/logo-utna.png" width="100" alt="UTNA">
+	</button>
+
+	<!-- Sidebar Toggle-->
+	<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" ><i
+		class="fa-solid fa-bars"></i></button>
+
+	<!-- Navbar Search-->
+	<form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+
+<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-5">
+		<% if(session) { %>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+				aria-expanded="false"><i class="fa-solid fa-user fa-fw me-1"></i><%= session.name %></a>
+			<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+				<li><div class="container ps-3">
+					<span data-lang="es">Lenguaje</span><span data-lang="en">Language</span>
+					<div class="button b2 mt-2 mb-2" id="button-17">
+						<input id="btn-lang" type="checkbox" class="checkbox">
+							<div class="knobs" data-checked="English" data-unchecked="Español"><span></span></div>
+						<div class="layer"></div>
+					</div>
+				</div></li>
+
+				<li><button class="dropdown-item container ps-3" data-bs-toggle="modal" data-bs-target="#modalPassword">
+					<span data-lang="es">Cambiar contraseña</span><span data-lang="en">Change Password</span>
+				</button></li>
+
+				<% if(session.category == -1) { %>
+				<li><button class="dropdown-item container ps-3" data-bs-toggle="modal" data-bs-target="#modalSuperUser">
+					<span data-lang="es">Super Usuario</span><span data-lang="en">Super User</span>
+				</button></li>
+				<% } %>
+
+				<li><button class="dropdown-item container logout">
+					<span class="pe-none" data-lang="es">Cerrar sesión</span><span data-lang="en">Logout</span>
+				</button></li>
+			</ul>
+		</li>
+		<% } %>
+	</ul>
+</nav>	<!-- Navbar-->
+	
+<!-- Navbar -->
+
+<button id="modal-password-confirm" class="d-none" hidden data-bs-toggle="modal" data-bs-target="#passwordConfirm"></button>
+
+<div id="modalPassword" class="modal fade" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">
+					<span data-lang="es">Cambiar contraseña</span>
+					<span data-lang="en">Change Password</span>
+				</h5>
+				<button id="close-modal-password" type="button" class="btn-close cancel-pass" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<h6 class="text-center">
+					<span data-lang="es">Establece una nueva contraseña. La nueva contraseña debe contener al menos 8 caracteres.</span>
+					<span data-lang="en">Set a new password. The new password must contain at least 8 characters.</span>
+				</h6>
+				<div class="reg-field mb-3 col-10 mx-auto">
+					<div class="form-floating mb-3 mb-md-0">
+						<input id="new-password" class="form-control mandatory" autocomplete="new-password"
+							type="password" placeholder="." maxlength="30" />
+						<label for="name">
+							<span class="lang" data-lang="es">Contraseña</span>
+							<span class="lang" data-lang="en">Password</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary cancel-pass" data-bs-dismiss="modal">
+					<span data-lang="es">Cancelar</span>
+					<span data-lang="en">Cancel</span>
+				</button>
+				<button id="check-pass" type="button" class="btn btn-primary">
+					<span data-lang="es">Actualizar contraseña</span>
+					<span data-lang="en">Update Password</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="passwordConfirm" data-bs-backdrop="static" data-bs-keyboard="false"
+	tabindex="-1" aria-labelledby="passwordConfirmLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="passwordConfirmLabel">
+					<span data-lang="es">Confirmar Acción</span>
+					<span data-lang="en">Confirm Action</span>
+				</h5>
+				<button type="button" class="btn-close cancel-pass" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<h6 class="text-center">
+					<span data-lang="es">Debe asegurarse que recuerda la contraseña.
+						¿Desea confirmar el cambio de contraseña?</span>
+					<span data-lang="en">Make sure you remember the password.
+						Do you want to confirm the password change?</span>
+				</h6>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary cancel-pass" data-bs-dismiss="modal">
+					<span data-lang="es">Cancelar</span>
+					<span data-lang="en">Cancel</span>
+				</button>
+				<button id="update-pass" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+					<span data-lang="es">Confirmar</span>
+					<span data-lang="en">Confirm</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% if(session) { %>
+	<% if(session.category == -1) { %>
+	<button id="modal-super-confirm" class="d-none" hidden data-bs-toggle="modal" data-bs-target="#superUserConfirm"></button>
+
+	<div id="modalSuperUser" class="modal fade" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<span data-lang="es">Super Usuario</span>
+						<span data-lang="en">Super User</span>
+					</h5>
+					<button id="close-modal-super" type="button" class="btn-close cancel-pass"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h6 class="text-center">
+						<span data-lang="es">Busque el nombre o el código de usuario (ID)
+							del empleado para añadir el modo "Super Usuario".</span>
+						<span data-lang="en">Search for the employee's name or user code
+							(ID) to add the "Super User" mode.</span>
+					</h6>
+					<div class="reg-field mb-3 col-10 mx-auto">
+						<div class="form-floating mb-3 mb-md-0">
+							<input id="new-super" class="form-control dynamic-hint mandatory" data-hint-display="all"
+								data-hint-collection="user_info" name="_id" data-hint-target="id" type="text" placeholder="." />
+							<label for="name">
+								<span class="lang" data-lang="es">Usuario</span>
+								<span class="lang" data-lang="en">Usuario</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary cancel-super" data-bs-dismiss="modal">
+						<span data-lang="es">Cancelar</span>
+						<span data-lang="en">Cancel</span>
+					</button>
+					<button id="check-super" type="button" class="btn btn-primary">
+						<span data-lang="es">Continuar</span>
+						<span data-lang="en">Continue</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="superUserConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="superUserConfirmLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="superUserConfirmLabel">
+						<span data-lang="es">Confirmar Super Usuario</span>
+						<span data-lang="en">Confirm Super User</span>
+					</h5>
+					<button type="button" class="btn-close cancel-super" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h6 class="text-center">
+						<span data-lang="es">Ingrese la contraseña de administrador para continuar.</span>
+						<span data-lang="en">Enter the administrator password to continue.</span>
+					</h6>
+					<div class="reg-field mb-3 col-10 mx-auto">
+						<div class="form-floating mb-3 mb-md-0">
+							<input id="confirm-pass-super" class="form-control mandatory" type="password" placeholder="." />
+							<label for="pass">
+								<span class="lang" data-lang="es">Contraseña</span>
+								<span class="lang" data-lang="en">Password</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary cancel-pass" data-bs-dismiss="modal">
+						<span data-lang="es">Cancelar</span>
+						<span data-lang="en">Cancel</span>
+					</button>
+					<button id="add-super-user" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+						<span data-lang="es">Continuar</span>
+						<span data-lang="en">Continue</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% } %>
+<% } %>

@@ -1,0 +1,26 @@
+
+<% if (user.usuario==="Usuario 1") { %>
+	<%- include('Eval_Pares.ejs') %>
+	<% } %>
+	
+	<% if (user.usuario==="Usuario 2") { %>
+		<%- include('Eval_Tutoria.ejs') %>
+		<% } %>
+		
+		<% if (user.usuario==="Usuario 3") { %>
+			<%- include('Enc_Satisfaccion.ejs') %>
+			<% } %>
+			
+			<% if (user.usuario==="Usuario 4") { %>
+				<%- include('Eval_Desempeño.ejs') %>
+				<% } %>
+				
+				<% if (user.usuario==="Usuario 5") { %>
+					<%- include('Observacion_Clase.ejs') %>
+					<% } %>		
+
+<%- include('template/!scripts.ejs') %>
+<script src="/js/page-inator.js"></script>
+<script src="/js/ctrl-panel.js"></script>
+
+				

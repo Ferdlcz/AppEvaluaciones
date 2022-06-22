@@ -1,0 +1,486 @@
+<!-- Modal Register -->
+<div id="register" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl modal-dialog-centered w-90 w-md-75">
+		<div class="modal-content bg-dark rounded-3 shadow-lg">
+			<div class="row my-auto align-content-center px-3">
+				<div class="container">
+					<div class="row mt-3">
+						<div class="col-2"></div>
+						<div class="col d-flex justify-content-center">
+							<h4 class="text-light p-0 mt-2">
+								<span class="p-0 lang" data-lang="es">Registros de personal</span>
+								<span class="p-0 lang" data-lang="en">Personnel records</span>
+							</h4>
+						</div>
+						<div class="col-2 d-flex justify-content-center align-content-center">
+							<button type="button" class="btn btn-outline-light my-auto d-flex close-modal" data-bs-dismiss="modal" aria-label="Close">
+								<i class="fa-solid fa-xmark fs-5 my-auto"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex flex-nowrap text-light justify-content-center text-decoration-underline">
+					<p class="lang" data-lang="es">Los campos obligatorios aparecen marcados con un </p>
+					<p class="lang" data-lang="en">Required fields are marked with a </p>
+					<span class="text-danger ps-2"><i class="fa-solid fa-asterisk"></i></span>
+				</div>
+				<div class="card-body">
+					<form method="POST" name="manual-reg" id="manual-reg" autocomplete="off">
+						<div class="row">
+							<div class="reg-field mb-3 col-md-4 col-12 find-user">
+								<div class="form-floating">
+									<input class="form-control dynamic-hint mandatory find-user" data-hint-collection="user_info"
+										autocomplete="new-password" name="_id" id="new_id" type="text" placeholder="." maxlength="4"
+										data-hint-siblings="id-name" data-hint-target="id" data-hint-display="id"
+										disabled />
+									<label for="new_id">
+										<span class="lang" data-lang="es">Código de usuario</span>
+										<span class="lang" data-lang="en">User code</span>(ID)
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+							<div class="reg-field mb-3 col-md-8 col-12 find-user">
+								<div class="form-floating mb-3 mb-md-0">
+									<input class="form-control dynamic-hint mandatory find-user" data-hint-collection="user_info"
+										autocomplete="new-password" name="name" id="name" type="text" placeholder="." maxlength="30"
+										data-hint-siblings="id-name" data-hint-target="name" data-hint-display="name"
+										disabled />
+									<label for="name">
+										<span class="lang" data-lang="es">Nombre</span>
+										<span class="lang" data-lang="en">Name</span>
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="reg-field mb-3 col-md-6 col-12">
+								<div class="form-floating mb-3 mb-md-0">
+									<select class="form-control form-select ps-4 mandatory" name="area" id="area" disabled>
+										<option id="area-def" value="0" class="lang" data-lang="es" 
+											selected>- Selecciona área -</option>
+										<option id="area-def" value="0" class="lang" data-lang="en"
+											selected>- Select area -</option>
+									</select>
+									<label for="area">
+										<span class="lang" data-lang="es">Área de Adscripción</span>
+										<span class="lang" data-lang="en">Adscription area</span>
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+							<div class="reg-field mb-3 col-md-6 col-12">
+								<div class="form-floating mb-3 mb-md-0">
+									<select class="form-control form-select ps-4 mandatory" name="directorate" id="directorate" disabled>
+										<option id="dir-def" value="0" class="lang" data-lang="es"
+											selected>- Selecciona dirección -</option>
+										<option id="dir-def" value="0" class="lang" data-lang="en"
+											selected>- Select directorate -</option>
+									</select>
+									<label for="directorate">
+										<span class="lang" data-lang="es">Dirección / Subdirección</span>
+										<span class="lang" data-lang="en">Directorate / Sub-directorate</span>
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="reg-field mb-3 col-md-6 col-12">
+								<div class="form-floating">
+									<select class="form-control form-select ps-4 mandatory" name="position" id="position" disabled>
+										<option id="position-def" value="0" class="lang" data-lang="es" selected>
+											- Selecciona puesto -
+										</option>
+										<option id="position-def" value="0" class="lang" data-lang="en" selected>
+											- Select position -
+										</option>
+									</select>
+									<label for="position">
+										<span class="lang" data-lang="es">Puesto</span>
+										<span class="lang" data-lang="en">Position</span>
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+
+							<div class="reg-field mb-3 col-md-6 col-12">
+								<div class="form-floating">
+									<select class="form-control form-select ps-4 mandatory" name="category" id="category" disabled>
+										<option id="category-def" value="0" class="lang" data-lang="es" selected>
+											- Selecciona categoría -
+										</option>
+										<option id="category-def" value="0" class="lang" data-lang="en" selected>
+											- Select category -
+										</option>
+									</select>
+									<label for="category">
+										<span class="lang" data-lang="es">Categoría</span>
+										<span class="lang" data-lang="en">Category</span>
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="reg-field mb-3 col-md-6 col-12 mx-auto">
+								<div class="form-floating mb-3 mb-md-0">
+									<input class="form-control dynamic-hint mandatory" data-hint-display="all" data-hint-collection="user_info"
+										name="manager" id="manager" type="text" placeholder="." data-hint-target="id" disabled />
+									<label for="manager">
+										<span class="lang" data-lang="es">Jefe directo</span>
+										<span class="lang" data-lang="en">Manager</span>
+										<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="mt-2 mb-0">
+							<div class="row mt-3">
+								<div class="mb-2 d-flex justify-content-center">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="new_user">
+										<label class="form-check-label text-light text-decoration-underline" for="new_user">
+											<span class="lang" data-lang="es">Nuevo registro como usuario</span>
+											<span class="lang" data-lang="en">New registry as user</span>
+										</label>
+									</div>
+									<div class="tooltip-text my-auto d-flex text-light" 
+										data-tooltip-es="La persona a registrar podrá acceder a esta aplicación web con las 
+											credenciales asignadas (Código y contraseña). La contraseña será generada de forma aleatoria."
+										data-tooltip-en="This person will be able to access this web application with the
+											assigned credentials (ID and password). The password will be randomly generated.">
+										<i class="fa-solid fa-circle-question fs-5 my-auto ms-2"></i>
+									</div>
+								</div>
+								<div class="my-1 mb-2 d-flex justify-content-center">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="find_user">
+										<label class="form-check-label text-light text-decoration-underline" for="find_user">
+											<span class="lang" data-lang="es">Buscar y crear usuario</span>
+											<span class="lang" data-lang="en">Find and create user</span>
+										</label>
+									</div>
+									<div class="tooltip-text my-auto d-flex text-light" 
+										data-tooltip-es="Se buscara información del empleado (por Nombre o Código), debe estar
+											registrado en la base de datos para crear un nuevo usuario del sistema. La contraseña
+											será generada de forma aleatoria."
+										data-tooltip-en="Employee information (by Name or ID) will be searched, must be registered
+											in the database to create a new system user. The password will be randomly generated.">
+										<i class="fa-solid fa-circle-question fs-5 my-auto ms-2"></i>
+									</div>
+								</div>
+								<button id="submit-register" class="mx-auto w-50 w-md-25 btn btn-success text-dark fs-5 btn-block"
+									type="button" disabled>
+									<span class="lang" data-lang="es">Registrar</span>
+									<span class="lang" data-lang="en">Register</span>
+								</button>
+								<p class="p-0 text-light text-center my-4 lang" data-lang="es">O subir un <span data-bs-dismiss="modal" aria-label="Close"
+									data-bs-toggle="modal" data-bs-target="#register-file"
+									class="text-warning fw-bold cursor-pointer">archivo Excel</span>
+								</p>
+								<p class="p-0 text-light text-center my-4 lang" data-lang="en">Or upload a <span data-bs-dismiss="modal" aria-label="Close"
+									data-bs-toggle="modal" data-bs-target="#register-file"
+									class="text-warning fw-bold cursor-pointer">Excel file</span>
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="register-file" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false"
+	aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl modal-dialog-centered w-75 w-md-60">
+		<div class="modal-content bg-dark rounded-3 shadow-lg">
+			<form method="POST" name="file-reg" id="file-reg" autocomplete="off">
+				<div class="container">
+					<div class="row mt-3">
+						<div class="col-2"></div>
+						<div class="col d-flex justify-content-center">
+							<h4 class="text-light p-0 mt-2">
+								<span class="p-0 lang" data-lang="es">Registros de personal (Archivo)</span>
+								<span class="p-0 lang" data-lang="en">Personnel records (File)</span>
+							</h4>
+						</div>
+						<div class="col-2 d-flex justify-content-center align-content-center">
+							<button type="button" class="btn btn-outline-light my-auto d-flex close-modal" data-bs-dismiss="modal" aria-label="Close">
+								<i class="fa-solid fa-xmark fs-5 my-auto"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row m-b-1">
+					<div class="col-sm-6 offset-sm-3 my-4">
+						<div class="form-group inputDnD">
+							<label class="sr-only lang" data-lang="es" for="excel-file">File Upload</label>
+							<label class="sr-only lang" data-lang="en" for="excel-file">File Upload</label>
+	
+							<input type="file" class="lang p-0 form-control-file text-warning font-weight-bold"
+								id="excel-file" accept=".xls, .xlsx"
+								data-title="">
+						</div>
+					</div>
+				</div>
+				<div id="columns" class="container d-none">
+					<div class="row">
+						<div class="text-center">
+							<p class="py-2 mb-0">
+								<span class="px-3 py-2 m-0 badge bg-secondary fs-5 p-0 lang" data-lang="es">Selecciona las columnas correspondientes</span>
+								<span class="px-3 py-2 m-0 badge bg-secondary fs-5 p-0 lang" data-lang="en">Select the corresponding columns</span>
+							</p>
+							<div class="d-flex flex-nowrap text-light justify-content-center text-decoration-underline">
+								<p class="lang" data-lang="es">Los campos obligatorios aparecen marcados con un </p>
+								<p class="lang" data-lang="en">Required fields are marked with a </p>
+								<span class="text-danger ps-2"><i class="fa-solid fa-asterisk"></i></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="_id" id="col-id" disabled>
+									<option class="lang" data-lang="es" value="0" selected>- Selecciona una columna -</option>
+									<option class="lang" data-lang="en" value="0" selected>- Select a column -</option>
+								</select>
+								<label for="col-id">
+									<span class="lang" data-lang="es">Códigos de usuario (IDs)</span>
+									<span class="lang" data-lang="en">IDs</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="name" id="col-name" disabled>
+									<option class="lang" data-lang="es" value="0" selected>- Selecciona una columna -</option>
+									<option class="lang" data-lang="en" value="0" selected>- Select a column -</option>
+								</select>
+								<label for="col-name">
+									<span class="lang" data-lang="es">Nombres</span>
+									<span class="lang" data-lang="en">Names</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="area" id="col-area" disabled>
+									<option class="lang" data-lang="es" value="0" selected>- Selecciona una columna -</option>
+									<option class="lang" data-lang="en" value="0" selected>- Select a column -</option>
+								</select>
+								<label for="col-area">
+									<span class="lang" data-lang="es">Áreas</span>
+									<span class="lang" data-lang="en">Areas</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="directorate" id="col-directorate" disabled>
+									<option class="lang" data-lang="es" value="0" selected>- Selecciona una columna -</option>
+									<option class="lang" data-lang="en" value="0" selected>- Select a column -</option>
+								</select>
+								<label for="col-directorate">
+									<span class="lang" data-lang="es">Direcciones / Subdirecciones</span>
+									<span class="lang" data-lang="en">Directorates / Sub-directorates</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="position" id="col-position" disabled>
+									<option class="lang" data-lang="es" value="0" selected>- Selecciona una columna -</option>
+									<option class="lang" data-lang="en" value="0" selected>- Select a column -</option>
+								</select>
+								<label for="col-position">
+									<span class="lang" data-lang="es">Puestos</span>
+									<span class="lang" data-lang="en">Positions</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="category" id="col-category" disabled>
+									<option class="lang" data-lang="es" value="0" selected>- Selecciona una columna -</option>
+									<option class="lang" data-lang="en" value="0" selected>- Select a column -</option>
+								</select>
+								<label for="col-category">
+									<span class="lang" data-lang="es">Categoría</span>
+									<span class="lang" data-lang="en">Category</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4 mandatory" name="manager" id="col-manager" disabled>
+									<option value="0" selected>N.A.</option>
+								</select>
+								<label for="col-manager">
+									<span class="lang" data-lang="es">Jefe directo (IDs)</span>
+									<span class="lang" data-lang="en">Manager (IDs)</span>
+									<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4" name="new_user" id="col-new_user" disabled>
+									<option value="0" selected>N.A.</option>
+								</select>
+								<label for="col-manager">
+									<span class="lang" data-lang="es">Usuario de Sistema</span>
+									<span class="lang" data-lang="en">System User</span>
+								</label>
+							</div>
+						</div>
+
+
+						<% if(true) {  // ------------------------------ Set false if not required for testing ------------------------------ %>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4" name="sp-score" id="col-sp-score" disabled>
+									<option value="0" selected>N.A.</option>
+								</select>
+								<label for="col-manager">
+									<span>(Especial) Promedio</span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4" name="sp-year" id="col-sp-year" >
+									<option value="0" selected>N.A.</option>
+								</select>
+								<label for="col-manager">
+									<span>(Especial) Año</span>
+								</label>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="form-floating my-2">
+								<select class="form-control form-select ps-4" name="sp-answers" id="col-sp-answers" >
+									<option value="0" selected>N.A.</option>
+								</select>
+								<label for="col-manager">
+									<span>(Especial) Respuestas</span>
+								</label>
+							</div>
+						</div>
+						<% } %>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="mb-0">
+						<div class="row mt-2">
+							<button id="submit-file" class="mx-auto w-50 w-md-25 btn btn-success text-dark fs-5 btn-block"
+								type="button" disabled>
+								<span class="lang" data-lang="es">Subir archivo</span>
+								<span class="lang" data-lang="en">Upload file</span>
+							</button>
+							<p class="p-0 text-light text-center my-4 lang" data-lang="es">Cambiar a <span data-bs-dismiss="modal" aria-label="Close"
+								data-bs-toggle="modal" data-bs-target="#register"
+								class="text-warning fw-bold cursor-pointer to-register">registro manual</span>
+							</p>
+							<p class="p-0 text-light text-center my-4 lang" data-lang="en">Change to <span data-bs-dismiss="modal" aria-label="Close"
+								data-bs-toggle="modal" data-bs-target="#register"
+								class="text-warning fw-bold cursor-pointer to-register">manual registry</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="add-records-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+	aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+		<div class="modal-content shadow-lg">
+			<div class="modal-body">
+				<div class="container">
+					<h6 class="text-center">
+						<span data-lang="es">
+							Selecciona a que tabla o colección pertenecerá la
+							nueva información a registrar. Posteriormente escribe
+							el nombre del registro en Español (primer campo) y
+							en Inglés (segundo campo), luego de esto da clic en
+							<span class="fw-bold">Añadir Registro</span>.
+						</span>
+						<span data-lang="en">
+							Select the table or collection the new record will
+							belong to. Then type the name of the record in
+							Spanish (first field) and in English (second field),
+							after that click on <span class="fw-bold">Add Records</span>.
+						</span>
+					</h6>
+					
+					<div class="col-12 mt-3 mx-auto">
+						<div class="form-floating">
+							<select id="collection-selector" class="form-control form-select selector ps-4 mandatory">
+								<option value="0" data-lang="es">Selecciona una opción</option>
+								<option value="0" data-lang="en">Select an option</option>
+
+								<option value="area" data-lang="es">Areas de adscripción</option>
+								<option value="area" data-lang="en">Adscription areas</option>
+
+								<option value="directorate" data-lang="es">Direcciones / Subdirecciones</option>
+								<option value="directorate" data-lang="en">Directorates / Sub-directorates</option>
+
+								<option value="position" data-lang="es">Puestos</option>
+								<option value="position" data-lang="en">Positions</option>
+
+								<option value="category" data-lang="es">Categorías</option>
+								<option value="category" data-lang="en">Categories</option>	
+							</select>
+							<label for="collectionSelector">
+								<span data-lang="es">Selecciona una colección / tabla</span>
+								<span data-lang="en">Select a collection / table</span>
+								<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+							</label>
+						</div>
+					</div>
+					
+					<div class="form-floating mt-3">
+						<input type="text" class="form-control" id="record-es" lang="es">
+						<label for="record-es">
+							<span class="lang" data-lang="es">Nombre del registro (Español)</span>
+							<span class="lang" data-lang="en">Record name (Spanish)</span>
+							<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+						</label>
+					</div>
+					<div class="form-floating mt-3">
+						<input type="text" class="form-control" id="record-en" lang="en">
+						<label for="record-en">
+							<span class="lang" data-lang="es">Nombre del registro (Inglés)</span>
+							<span class="lang" data-lang="en">Record name (English)</span>
+							<span class="text-danger"><i class="fa-solid fa-asterisk"></i></span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button id="close-add-record" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+					<span data-lang="es">Cancelar</span>
+					<span data-lang="en">Cancel</span>
+				</button>
+				<button id="add-records" type="button" class="btn btn-primary">
+					<span data-lang="es">Añadir Registro</span>
+					<span data-lang="en">Add Records</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

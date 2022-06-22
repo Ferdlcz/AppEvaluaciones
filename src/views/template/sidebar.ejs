@@ -1,0 +1,50 @@
+<div id="layoutSidenav_nav">
+	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+		<div class="sb-sidenav-menu">
+			<div class="nav">
+				<% if(session) { %>
+					<div class="sidebar-top-p top-border-b" data-color="#e29e20"></div>
+					<button class="nav-link dropdown-item btn goto" data-goto="/home/">
+						<div class="sb-nav-link-icon pe-none"><i class="fa-solid fa-home fa-2x"></i></div>
+						<span class="sb-nav-link-text pe-none">
+							<span data-lang="es">Inicio</span><span data-lang="en">Home</span>
+						</span>
+					</button>
+					<% if(session.category != -1) { %>
+						<div class="sb-sidenav-menu-heading green-border-t py-3">
+							<span class="sb-nav-link-text pe-none">
+								<span data-lang="es">Estatus</span><span data-lang="en">Status</span>
+							</span>
+						</div>
+
+						<button class="nav-link dropdown-item btn goto" data-goto="/metrics/">
+							<div class="sb-nav-link-icon pe-none"><i class="fa-solid fa-chart-line fa-2x"></i></div>
+							<span class="sb-nav-link-text pe-none">
+								<span data-lang="es">Métricas</span><span data-lang="en">Metrics</span>
+							</span>
+						</button>
+
+						<div class="sb-sidenav-menu-heading orange-border-t py-3">
+							<span class="sb-nav-link-text pe-none">
+								<span data-lang="es">Acciones</span><span data-lang="en">Actions</span>
+							</span>
+						</div>
+						
+						<button class="nav-link dropdown-item btn goto" data-goto="/evaluation/">
+							<div class="sb-nav-link-icon pe-none"><i class="fa-solid fa-pen-alt fa-2x"></i></div>
+							<span class="sb-nav-link-text pe-none">
+								<span data-lang="es">Evaluación</span><span data-lang="en">Evaluation</span>
+							</span>
+						</button>
+					<% } %>
+						<button class="nav-link dropdown-item btn logout">
+							<div class="sb-nav-link-icon pe-none"><i class="fa-solid fa-door-open fa-2x"></i></div>
+							<span class="sb-nav-link-text pe-none">
+								<span data-lang="es">Cerrar sesión</span><span data-lang="en">Logout</span>
+							</span>
+						</button>
+				<% } %>
+			</div>
+		</div>
+	</nav>
+</div>
