@@ -1,6 +1,36 @@
+<%- include('template/cs.ejs') %>
 
-<% if (user.usuario==="Usuario 1") { %>
+
+<%  console.log(user);
+	if (user.usuario==="Usuario 1") { %>
 	<%- include('Eval_Pares.ejs') %>
+
+	<div class="container">
+  <table class="table ">
+
+	<%if(result.length>0){%> 
+       
+    <tr class="headertabla">
+      <th>Codigo</th>
+      <th>Nombre Completo</th>
+      <th>Direccion</th>
+      <th>Calificacion </th>
+  </tr> 
+
+        <%for(var x=0;x < result.length;x++){%>
+            <tr class="bodytable">
+              <td><%= result[x].codigo %></td>
+              <td><%= result[x].nombrecompleto %></td>
+              <td><%= result[x].direccion %></td>
+              <td><%= result[x].calificacion %></td>
+            </tr>
+            <%}%>
+    </table>
+
+  </div>
+  <br>
+    <%}%> 
+
 	<% } %>
 	
 	<% if (user.usuario==="Usuario 2") { %>

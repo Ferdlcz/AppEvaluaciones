@@ -1,0 +1,57 @@
+<%- include('template/cs.ejs') %>
+
+<nav id="layoutNavbar"
+	class="sb-topnav navbar navbar-expand navbar-dark bg-dark text-end">
+	<!-- Navbar Brand-->
+	<button class="navbar-brand btn goto ps-3" data-goto="/">
+		<img class="mx-auto d-block pt-1 pe-none" src="/img/logo-utna.png" width="100" alt="UTNA">
+	</button>
+	
+	<!-- Sidebar Toggle-->
+	
+	<!-- Navbar Search-->
+	<form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+	
+	<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-5">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+			aria-expanded="false"> <i class="fa-solid fa-user fa-fw me-1"></i><%= user.usuario %></a>
+			<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+				
+				<li><button class="dropdown-item container logout">
+					
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> <a href="/logout" style="text-decoration: none; color: black;"><span class="pe-none" data-lang="es">Cerrar sesion</span></a><span data-lang="en">Logout</span>
+				</button></li>
+			</ul>
+		</li>
+	</ul>
+</nav>	<!-- Navbar-->
+
+            <div id="layoutSidenav_content">
+                <div class="container mt-5">
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-lg-6">
+                            <div class="text-center mt-4">
+                                <img class="mb-4 img-error" src="/img/svg/error404.svg" />
+                                <p class="lead">
+                                    <span class="lang" data-lang="es">No se encontró la página que buscas</span>
+                                    <span class="lang" data-lang="en">The page you are looking for was not found</span>
+                                </p>
+                                <a href="/logout">
+                                    <button class="btn btn-warning">
+                                        <i class="fa-solid fa-arrow-left me-1"></i>
+                                        <span class="lang" data-lang="es">Regresar a Inicio</span>
+                                        <span class="lang" data-lang="en">Return to Home</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('template/!scripts.ejs') %>
+    </body>
+
+</html>

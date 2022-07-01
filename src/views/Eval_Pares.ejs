@@ -20,7 +20,6 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 	<link href="/css/custom.css" rel="stylesheet" />
-	<link href="/css/login.css" rel="stylesheet" />
 	
 	<script src="https://kit.fontawesome.com/d2607f57a5.js" crossorigin="anonymous"></script>
 </head>
@@ -79,45 +78,23 @@
 
             <!----------------------------Carga de archivos-------------------------------------->
 
-<div class="row pt-4">
-            <div class="col-md-5 mx-auto">  
-                <div class="card">
-                    <div class="card-body">
-                        <form method="POST" action="/Eval_Pares" enctype="multipart/form-data">
-                            <div class="mb-2">
-                                <label for="excel" class="form-label">Adjuntar Excel</label>
-                                <input required class="form-control" type="file" id="formFile" name="excel" accept=".xlsx,.csv, .pdf" multiple>
+            <div class="container" style=" width: 80rem; align-content: center;">
+                <div class="lg-6">
+                        <div class="card border-danger mb-3" style="max-width: 70rem;">
+                                <div class="card-header barra">Cargar archivo excel</div>
+                                    <div class="card-body">
+                                      <form action="/sistema" method="POST" enctype="multipart/form-data">
+                                     <div class="form-group">
+                                       <label for="excel">Buscar archivo</label><input type="file" class="form-control" name="excel" required> <br>
+                                        <button type="submit" class="botonc">Enviar</button>
+                                       <!--<input type="submit" value="enviar" style="width: 20rem; text-align: center; margin: 0 33%;">-->
+                                     </div>
+                                      </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-grid gap-2 mt-5"><button type="submit" class="btn btn-primary btn-block" >Procesar</button></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="container">
-<table class="table" style="text-align: center; margin-top: 30px;">
-  
-    <%if(respar.length>0){%> 
-        <tr>
-            <th>Codigo</th>
-            <th>Nombre Completo</th>
-            <th>Direccion</th>
-            <th>Calificacion </th>
-        </tr>
-    
-        <%for(var x=0;x < respar.length;x++){%>
-            <tr>
-              <td><%= respar[x].codigo %></td>
-              <td><%= respar[x].nombrecompleto %></td>
-              <td><%= respar[x].direccion %></td>
-              <td><%= respar[x].calificacion %></td>
-            </tr>
-            <%}%>
-    </table>
-    <%}%>
-        </div>
 
         
 

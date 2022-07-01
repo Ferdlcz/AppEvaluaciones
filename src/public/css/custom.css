@@ -1469,3 +1469,30 @@ code {
 		top: 38px;
 	}
 }
+
+.botonc{
+	text-align: center; 
+	width: 30rem; 
+	height: 2.5rem;
+	border: none; 
+	border-radius: 10px;
+	background: rgba(33, 33, 38, 1);
+	color: white;
+	margin-left: 25%;
+}
+
+.barra{
+	background: rgba(33, 33, 38, 1);
+	color: white;
+}
+
+.headertabla{
+	background: rgba(33, 33, 38, 1);
+	color: white;
+	width: 70rem; 
+	text-align: center; 
+}
+
+.bodytable{
+	text-align: center;
+}
