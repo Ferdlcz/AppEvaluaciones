@@ -1,61 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="UTNA staff evaluation page / Pagina de evaluación del personal UTNA" />
-	<meta name="author" content="0s [Cereal]" />
-	
-	<title>Sistema</title>
-	
-	<link rel="icon" type="image/icon" href="/img/favicon.ico">
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	
-	<link href="/css/styles.css" rel="stylesheet" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-	rel="stylesheet" 
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
-	<link href="/css/custom.css" rel="stylesheet" />
-	<link href="/css/login.css" rel="stylesheet" />
-	
-	<script src="https://kit.fontawesome.com/d2607f57a5.js" crossorigin="anonymous"></script>
-</head>
-
-<body class="sb-nav-fixed">
-	
-	<nav id="layoutNavbar"
-	class="sb-topnav navbar navbar-expand navbar-dark bg-dark text-end">
-	<!-- Navbar Brand-->
-	<button class="navbar-brand btn goto ps-3" data-goto="/">
-		<img class="mx-auto d-block pt-1 pe-none" src="/img/logo-utna.png" width="100" alt="UTNA">
-	</button>
-	
-	<!-- Sidebar Toggle-->
-	
-	<!-- Navbar Search-->
-	<form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
-	
-	<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-5">
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-			aria-expanded="false"> <i class="fa-solid fa-user fa-fw me-1"></i><%= user.usuario %></a>
-			<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-				
-				<li><button class="dropdown-item container logout">
-					
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i> <a href="/logout" style="text-decoration: none; color: black;"><span class="pe-none" data-lang="es">Cerrar sesion</span></a><span data-lang="en">Logout</span>
-				</button></li>
-			</ul>
-		</li>
-	</ul>
-</nav>	<!-- Navbar-->
-
-<!------------------------------------->
-
 <div class="container-fluid px-4">
     <div class="mb-3 mt-5 pt-2">
         <div class="container-fluid px-4">
@@ -65,6 +7,7 @@
                         <span class="lang" data-lang="es">Inicio</span>
                         <span class="lang" data-lang="en">Home</span>
                     </h1>
+					
                     <p class="fs-5 text-center pb-4">
                         <span class="lang" data-lang="es">Evaluacion al desempeño</span>
                         <span class="lang" data-lang="en">Control Panel</span>
@@ -74,6 +17,20 @@
         </div>
     </div>
 
+	            <!----------------------------Carga de archivos-------------------------------------->
 
-</body>				
-</html>
+				<div class="container" style=" width: 80rem; align-content: center;">
+					<div class="lg-6">
+							<div class="card border-danger mb-3" style="max-width: 70rem;">
+									<div class="card-header barra">Cargar archivo excel</div>
+										<div class="card-body">
+										  <form action="/sistema    " method="POST" enctype="multipart/form-data">
+										 <div class="form-group">
+										   <label for="excel">Buscar archivo</label><input type="file" class="form-control" name="excel" required> <br>
+											<button type="submit" class="botonc">Enviar</button>
+										   <!--<input type="submit" value="enviar" style="width: 20rem; text-align: center; margin: 0 33%;">-->
+										 </div>
+										  </form>
+										</div>
+									</div>
+								</div>

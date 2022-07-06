@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 
 //inicializacion
 const app = express();  
-const PORT = 3000;
+const PORT = 4000;
 require('./database') 
 
 //-------------------------

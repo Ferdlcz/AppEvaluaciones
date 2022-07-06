@@ -3,8 +3,10 @@
   const router = express.Router();
   const passport =require('passport');
   const multer     = require('multer')
-  var XLSX       = require('xlsx');;
-  const result = require('../models/evalpares')
+  var XLSX       = require('xlsx');
+  const result = require('../models/evalpares');
+  const resulttuto = require('../models/evaltuto');
+  const VerificarUser = require('../middlewares/VerificarUser');
 
   
    //multer 
@@ -42,13 +44,31 @@
       });
     });
 
-    router.post('/sistema',upload.single('excel'),(req,res)=>{
+    router.get('/sistema', VerificarUser, upload.single('excel'), (req, res) =>{
+        result.find((err,data)=>{
+            //console.log(data);
+            if(err){
+                console.log("ERROR");
+                console.log(err)
+            }else{
+                if(data!=''){
+                    console.log("DATA");
+                    res.render('sistema',{result:data});
+                }else{
+                    console.log("DATA VACIA");
+                    res.render('sistema',{result:{}});
+                }
+            }  
+        });
+        });
+
+    router.post('/sistema'  ,upload.single('excel'),(req,res)=>{
         var workbook =  XLSX.readFile(req.file.path);
         var sheet_namelist = workbook.SheetNames;
         var x=0;
         sheet_namelist.forEach(element => {
             var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
-            result.insertMany(xlData,(err,data)=>{
+            resulttuto.insertMany(xlData,(err,data)=>{
                 if(err){
                     console.log(err);
                 }else{
@@ -60,48 +80,48 @@
         res.redirect('/sistema');
       });
 
+      router.get('/EvalTutoria',  upload.single('excel'), (req, res) =>{
+        resulttuto.find((err,data)=>{
+            //console.log(data); 
+            if(err){
+                console.log("ERROR");
+                console.log(err)
+            }else{
+                if(data!=''){
+                    console.log("DATA");
+                    res.render('EvalTutoria',{resulttuto:data});
+                }else{
+                    console.log("DATA VACIA");
+                    res.render('EvalTutoria',{resulttuto:{}});
+                }
+            }  
+        });
+        });
 
-
-      
-  //  
-
-     
-  // rutas protegidas----------------------------------------------
-
-  router.use((req,res,next)=>{
-      isAuthenticated(req, res, next);
-      next();
-  });
-
-  function isAuthenticated (req, res, next) {
-      if(req.isAuthenticated()){
-          return next();
-      }
-      res.redirect('/sistema')
-  }
-
+        router.post('/sistema'  ,upload.single('excel'),(req,res)=>{
+            var workbook =  XLSX.readFile(req.file.path);
+            var sheet_namelist = workbook.SheetNames;
+            var x=0;
+            sheet_namelist.forEach(element => {
+                var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_namelist[x]]);
+                resulttuto.insertMany(xlData,(err,data)=>{
+                    if(err){
+                        console.log(err);
+                    }else{
+                        console.log(data);
+                    }
+                })
+                x++;
+            });
+            res.redirect('/sistema');
+          });
   
   router.get('/registro', (req, res, next)=>{
     res.render('registro');
 })
 
-router.get('/sistema', (req, res) =>{
-   
-    upload.single('excel')
-    result.find((err,data)=>{
-        //console.log(data);
-        if(err){
-            console.log("ERROR");
-            console.log(err)
-        }else{
-            if(data!=''){
-                console.log("DATA");
-                res.render('sistema',{result:data});
-            }else{
-                console.log("DATA VACIA");
-                res.render('sistema',{result:{}});
-            }
-        }  
-    });
-    });
+
+
+
+
   module.exports = router 

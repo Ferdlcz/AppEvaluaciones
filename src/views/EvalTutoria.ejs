@@ -1,0 +1,36 @@
+<div class="container-fluid px-4">
+    <div class="mb-3 mt-5 pt-2">
+        <div class="container-fluid px-4">
+            <div class="container">
+                <div class="dynamic-title mt-4 mb-0 vw-80 vw-lg-50">
+                    <h1 class="display-3 text-center pt-4">
+                        <span class="lang" data-lang="es">Inicio</span>
+                        <span class="lang" data-lang="en">Home</span>
+                    </h1>
+
+                    <p class="fs-5 text-center pb-4">
+                        <span class="lang" data-lang="es">Evaluacion Tutorias</span>
+                        <span class="lang" data-lang="en">Control Panel</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!----------------------------Carga de archivos-------------------------------------->
+
+	<div class="container" style=" width: 80rem; align-content: center;">
+		<div class="lg-6">
+				<div class="card border-danger mb-3" style="max-width: 70rem;">
+						<div class="card-header barra">Cargar archivo excel</div>
+							<div class="card-body">
+							  <form action="/sistema    " method="POST" enctype="multipart/form-data">
+							 <div class="form-group">
+							   <label for="excel">Buscar archivo</label><input type="file" class="form-control" name="excel" required> <br>
+								<button type="submit" class="botonc">Enviar</button>
+							   <!--<input type="submit" value="enviar" style="width: 20rem; text-align: center; margin: 0 33%;">-->
+							 </div>
+							  </form>
+							</div>
+						</div>
+					</div>
